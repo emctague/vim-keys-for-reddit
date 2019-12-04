@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		135CF61E23981FBD0052E38B /* Vim_Keys_for_Reddit.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 135CF61D23981FBD0052E38B /* Vim_Keys_for_Reddit.entitlements */; };
+		135CF62023981FBD0052E38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135CF61F23981FBD0052E38B /* AppDelegate.swift */; };
+		135CF62323981FBD0052E38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 135CF62123981FBD0052E38B /* Main.storyboard */; };
+		135CF62523981FBD0052E38B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135CF62423981FBD0052E38B /* ViewController.swift */; };
+		135CF62723981FBE0052E38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 135CF62623981FBE0052E38B /* Assets.xcassets */; };
+		135CF62E23981FBE0052E38B /* Vim Keys for Reddit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 135CF62D23981FBE0052E38B /* Vim Keys for Reddit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		135CF63323981FBE0052E38B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135CF63223981FBE0052E38B /* Cocoa.framework */; };
+		135CF63623981FBE0052E38B /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135CF63523981FBE0052E38B /* SafariExtensionHandler.swift */; };
+		135CF63823981FBE0052E38B /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135CF63723981FBE0052E38B /* SafariExtensionViewController.swift */; };
+		135CF63B23981FBE0052E38B /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63923981FBE0052E38B /* SafariExtensionViewController.xib */; };
+		135CF63E23981FBE0052E38B /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63D23981FBE0052E38B /* script.js */; };
+		135CF64023981FBE0052E38B /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		135CF62F23981FBE0052E38B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 135CF61223981FBD0052E38B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 135CF62C23981FBE0052E38B;
+			remoteInfo = "Vim Keys for Reddit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		135CF64723981FBE0052E38B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				135CF62E23981FBE0052E38B /* Vim Keys for Reddit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		135CF61A23981FBD0052E38B /* Vim Keys for Reddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vim Keys for Reddit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		135CF61D23981FBD0052E38B /* Vim_Keys_for_Reddit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vim_Keys_for_Reddit.entitlements; sourceTree = "<group>"; };
+		135CF61F23981FBD0052E38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		135CF62223981FBD0052E38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		135CF62423981FBD0052E38B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		135CF62623981FBE0052E38B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		135CF62823981FBE0052E38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		135CF62D23981FBE0052E38B /* Vim Keys for Reddit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Vim Keys for Reddit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		135CF63223981FBE0052E38B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		135CF63523981FBE0052E38B /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		135CF63723981FBE0052E38B /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		135CF63A23981FBE0052E38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		135CF63C23981FBE0052E38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		135CF63D23981FBE0052E38B /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		135CF64123981FBE0052E38B /* Vim_Keys_for_Reddit_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vim_Keys_for_Reddit_Extension.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		135CF61723981FBD0052E38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135CF62A23981FBE0052E38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135CF63323981FBE0052E38B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		135CF61123981FBD0052E38B = {
+			isa = PBXGroup;
+			children = (
+				135CF61C23981FBD0052E38B /* Vim Keys for Reddit */,
+				135CF63423981FBE0052E38B /* Vim Keys for Reddit Extension */,
+				135CF63123981FBE0052E38B /* Frameworks */,
+				135CF61B23981FBD0052E38B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		135CF61B23981FBD0052E38B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				135CF61A23981FBD0052E38B /* Vim Keys for Reddit.app */,
+				135CF62D23981FBE0052E38B /* Vim Keys for Reddit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		135CF61C23981FBD0052E38B /* Vim Keys for Reddit */ = {
+			isa = PBXGroup;
+			children = (
+				135CF61D23981FBD0052E38B /* Vim_Keys_for_Reddit.entitlements */,
+				135CF61F23981FBD0052E38B /* AppDelegate.swift */,
+				135CF62123981FBD0052E38B /* Main.storyboard */,
+				135CF62423981FBD0052E38B /* ViewController.swift */,
+				135CF62623981FBE0052E38B /* Assets.xcassets */,
+				135CF62823981FBE0052E38B /* Info.plist */,
+			);
+			path = "Vim Keys for Reddit";
+			sourceTree = "<group>";
+		};
+		135CF63123981FBE0052E38B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				135CF63223981FBE0052E38B /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		135CF63423981FBE0052E38B /* Vim Keys for Reddit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				135CF63523981FBE0052E38B /* SafariExtensionHandler.swift */,
+				135CF63723981FBE0052E38B /* SafariExtensionViewController.swift */,
+				135CF63923981FBE0052E38B /* SafariExtensionViewController.xib */,
+				135CF63C23981FBE0052E38B /* Info.plist */,
+				135CF63D23981FBE0052E38B /* script.js */,
+				135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */,
+				135CF64123981FBE0052E38B /* Vim_Keys_for_Reddit_Extension.entitlements */,
+			);
+			path = "Vim Keys for Reddit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		135CF61923981FBD0052E38B /* Vim Keys for Reddit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 135CF64823981FBE0052E38B /* Build configuration list for PBXNativeTarget "Vim Keys for Reddit" */;
+			buildPhases = (
+				135CF61623981FBD0052E38B /* Sources */,
+				135CF61723981FBD0052E38B /* Frameworks */,
+				135CF61823981FBD0052E38B /* Resources */,
+				135CF64723981FBE0052E38B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				135CF63023981FBE0052E38B /* PBXTargetDependency */,
+			);
+			name = "Vim Keys for Reddit";
+			productName = "Vim Keys for Reddit";
+			productReference = 135CF61A23981FBD0052E38B /* Vim Keys for Reddit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		135CF62C23981FBE0052E38B /* Vim Keys for Reddit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 135CF64423981FBE0052E38B /* Build configuration list for PBXNativeTarget "Vim Keys for Reddit Extension" */;
+			buildPhases = (
+				135CF62923981FBE0052E38B /* Sources */,
+				135CF62A23981FBE0052E38B /* Frameworks */,
+				135CF62B23981FBE0052E38B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Vim Keys for Reddit Extension";
+			productName = "Vim Keys for Reddit Extension";
+			productReference = 135CF62D23981FBE0052E38B /* Vim Keys for Reddit Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		135CF61223981FBD0052E38B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Ethan McTague";
+				TargetAttributes = {
+					135CF61923981FBD0052E38B = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					135CF62C23981FBE0052E38B = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 135CF61523981FBD0052E38B /* Build configuration list for PBXProject "Vim Keys for Reddit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 135CF61123981FBD0052E38B;
+			productRefGroup = 135CF61B23981FBD0052E38B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				135CF61923981FBD0052E38B /* Vim Keys for Reddit */,
+				135CF62C23981FBE0052E38B /* Vim Keys for Reddit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		135CF61823981FBD0052E38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135CF61E23981FBD0052E38B /* Vim_Keys_for_Reddit.entitlements in Resources */,
+				135CF62723981FBE0052E38B /* Assets.xcassets in Resources */,
+				135CF62323981FBD0052E38B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135CF62B23981FBE0052E38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135CF64023981FBE0052E38B /* ToolbarItemIcon.pdf in Resources */,
+				135CF63B23981FBE0052E38B /* SafariExtensionViewController.xib in Resources */,
+				135CF63E23981FBE0052E38B /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		135CF61623981FBD0052E38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135CF62523981FBD0052E38B /* ViewController.swift in Sources */,
+				135CF62023981FBD0052E38B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		135CF62923981FBE0052E38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				135CF63823981FBE0052E38B /* SafariExtensionViewController.swift in Sources */,
+				135CF63623981FBE0052E38B /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		135CF63023981FBE0052E38B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 135CF62C23981FBE0052E38B /* Vim Keys for Reddit Extension */;
+			targetProxy = 135CF62F23981FBE0052E38B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		135CF62123981FBD0052E38B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				135CF62223981FBD0052E38B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		135CF63923981FBE0052E38B /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				135CF63A23981FBE0052E38B /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		135CF64223981FBE0052E38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		135CF64323981FBE0052E38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		135CF64523981FBE0052E38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Vim Keys for Reddit Extension/Vim_Keys_for_Reddit_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JXKMK3HJU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Vim Keys for Reddit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "me.tague.Vim-Keys-for-Reddit-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		135CF64623981FBE0052E38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Vim Keys for Reddit Extension/Vim_Keys_for_Reddit_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6JXKMK3HJU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Vim Keys for Reddit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "me.tague.Vim-Keys-for-Reddit-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		135CF64923981FBE0052E38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Vim Keys for Reddit/Vim_Keys_for_Reddit.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6JXKMK3HJU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Vim Keys for Reddit/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "me.tague.Vim-Keys-for-Reddit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		135CF64A23981FBE0052E38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Vim Keys for Reddit/Vim_Keys_for_Reddit.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6JXKMK3HJU;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Vim Keys for Reddit/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "me.tague.Vim-Keys-for-Reddit";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		135CF61523981FBD0052E38B /* Build configuration list for PBXProject "Vim Keys for Reddit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				135CF64223981FBE0052E38B /* Debug */,
+				135CF64323981FBE0052E38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		135CF64423981FBE0052E38B /* Build configuration list for PBXNativeTarget "Vim Keys for Reddit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				135CF64523981FBE0052E38B /* Debug */,
+				135CF64623981FBE0052E38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		135CF64823981FBE0052E38B /* Build configuration list for PBXNativeTarget "Vim Keys for Reddit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				135CF64923981FBE0052E38B /* Debug */,
+				135CF64A23981FBE0052E38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 135CF61223981FBD0052E38B /* Project object */;
+}
