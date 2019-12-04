@@ -1,0 +1,22 @@
+/*
+//  style.css
+//  Vim Keys for Reddit Extension
+//
+//  Created by Ethan McTague on 2019-12-04.
+//  Copyright © 2019 Ethan McTague. All rights reserved.
+//
+//  This stylesheet is injected into ANY reddit page, in order to apply Vim Keys for Reddit
+//  styling to the page. Note that Vim Keys for Reddit attempts to mimick RES (Reddit
+//  Enhancement Suite)'s class names and general styling, such that custom subreddit styles for
+//  RES will be compatible with Vim Keys for Reddit, too.
+*/
+
+/* Set a highlight on the currently selected entry (post or comment). */
+.res-selected, .res-selected>.entry {
+    background-color: #F0F3FC;
+}
+
+/* Hide "promoted links" (ads) */
+.promotedlink {
+    display: none;
+}

@@ -19,6 +19,7 @@
 		135CF63B23981FBE0052E38B /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63923981FBE0052E38B /* SafariExtensionViewController.xib */; };
 		135CF63E23981FBE0052E38B /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63D23981FBE0052E38B /* script.js */; };
 		135CF64023981FBE0052E38B /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */; };
+		135CF64E239826D70052E38B /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 135CF64D239826D70052E38B /* style.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		135CF63D23981FBE0052E38B /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		135CF64123981FBE0052E38B /* Vim_Keys_for_Reddit_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vim_Keys_for_Reddit_Extension.entitlements; sourceTree = "<group>"; };
+		135CF64D239826D70052E38B /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				135CF63D23981FBE0052E38B /* script.js */,
 				135CF63F23981FBE0052E38B /* ToolbarItemIcon.pdf */,
 				135CF64123981FBE0052E38B /* Vim_Keys_for_Reddit_Extension.entitlements */,
+				135CF64D239826D70052E38B /* style.css */,
 			);
 			path = "Vim Keys for Reddit Extension";
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				135CF64023981FBE0052E38B /* ToolbarItemIcon.pdf in Resources */,
+				135CF64E239826D70052E38B /* style.css in Resources */,
 				135CF63B23981FBE0052E38B /* SafariExtensionViewController.xib in Resources */,
 				135CF63E23981FBE0052E38B /* script.js in Resources */,
 			);
