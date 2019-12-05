@@ -15,32 +15,30 @@ if (window.parent == window.top) {
         
         /* Locate elements belonging to Element 'parent', returning the list.
          * If 'parent' is null, finds root-level elements.
-         *
-         * The returned array has a special method 'computeNexts' which should be
-         * called after the parent element is fully set up. This method will set up
-         * the chain of next/previous elements.
          */
         static locateElements(parent, controller) {
             const selObj = parent ? parent.getNode() : document;
             
-            const selPart = ".sitetable>.thing:not(.promotedlink)";
+            const selPart = ".sitetable>.thing[id]:not(.promotedlink)";
             
             const fullSel = parent ? `:scope>.child>${selPart}`
                                  : `.linklisting${selPart}, .nestedlisting${selPart}`;
             
-            let prev = parent;
             const output = Array.from(selObj.querySelectorAll(fullSel))
-                                .map(item =>
-                                     prev = new VimKeysElement(item.id, prev, controller));
+                                .map(item => new VimKeysElement(item.id, controller));
             
-            output.computeNexts = function() {
-                for (const i in output) {
-                    const j = parseInt(i);
-                    if (j < output.length - 1) {
-                        output[j].setNext(output[j + 1]);
-                    }
-                }
-            };
+            /* Build the immediate next and immediate previous element list.
+             * The last element's immediate next is not set here, as it is set instead
+             * by the parent when it receives its own next element.
+             */
+            for (const i in output) {
+                const j = parseInt(i);
+                
+                if (j === 0) output[j].setImmediatePrevious(parent);
+                else output[j].setImmediatePrevious(output[j - 1]);
+                
+                if (j < output.length - 1) output[j].setImmediateNext(output[j + 1]);
+            }
             
             return output;
         }
@@ -61,18 +59,18 @@ if (window.parent == window.top) {
         
         /* Construct an element, which may have child elements.
          * `id` is the DOM element ID for this thing
-         * `previous` is the previous Element instance, if applicable.
          * `controller` is the VimKeys instance.
          */
-        constructor(id, previous, controller) {
+        constructor(id, controller) {
             this._id = id;
             this._controller = controller;
             this._validWhen = this._controller.getActiveState();
-            this._previous = previous;
-            this._immediatePrevious = previous;
+            this._previous = null;
+            this._immediatePrevious = null;
             this._next = null;
             this._immediateNext = null;
             
+            console.log(this._id);
             const node = this.getNode();
             
             this._type = node.classList.contains("comment") ? "Comment" :
@@ -84,15 +82,26 @@ if (window.parent == window.top) {
             if (this._children.length) this._next = this._children[0];
             
             node.querySelector(".top-matter, .entry").addEventListener("click", _ => this.makeFocused());
-            
-            this._children.computeNexts();
-            
+                        
             if (this._type === "More") {
                 /* Rebuild node tree when necessary. */
                 node.addEventListener('DOMNodeRemoved', () => {
                       if (this.isValid()) this._controller.updateTree(this.getPrevious());
                 });
             }
+        }
+        
+        /* Set up the immediate next element for this element. */
+        setImmediateNext(next) {
+            this._immediateNext = next;
+            if (this._children.length) {
+                this._children[this._children.length - 1].setImmediateNext(next);
+            }
+        }
+        
+        /* Set up the immediate previous element for this element. */
+        setImmediatePrevious(previous) {
+            this._immediatePrevious = previous;
         }
         
         /* Check if this element is still valid. */
@@ -109,19 +118,11 @@ if (window.parent == window.top) {
         
         /* Set up the 'next' element for this element. */
         setNext(next) {
-            this._immediateNext = next;
-            
-            if (this._children.length) {
-                this._children[this._children.length - 1].setNext(next);
-                next.setPrevious(this._children[this._children.length - 1]);
-            } else {
-                this._next = next;
-            }
+            this._next = next;
         }
         
         /* Set up the previous element for this element. */
         setPrevious(previous) {
-            this._immediatePrevious = this._previous;
             this._previous = previous;
         }
         
@@ -165,10 +166,9 @@ if (window.parent == window.top) {
         
         /* Find the child element (or THIS ELEMENT) with the given ID. */
         findChild(id) {
-            if (this.getID() == id) return this;
+            if (this.getID() === id) return this;
             
             for (let node of this._children) {
-                if (node.getID() === id) return node;
                 let found = node.findChild(id);
                 if (found) return found;
             }
@@ -206,6 +206,11 @@ if (window.parent == window.top) {
             const comment = this.getCommentURL();
             if (link !== comment) return link;
         }
+        
+        /* Convert to a flat list containing this element and all children. */
+        flatten() {
+            return [this].concat(this._children.map(child => child.flatten()).flat());
+        }
     }
 
     
@@ -231,10 +236,17 @@ if (window.parent == window.top) {
         updateTree(newFocus) {
             this._activeState++;
             this._elements = VimKeysElement.locateElements(null, this);
-            this._elements.computeNexts();
             
+            /* Set up the next/previous element list. */
+            const flatList = this._elements.map(e => e.flatten()).flat();
+            for (let i = 0; i < flatList.length; i++) {
+                if (i != 0) flatList[i].setPrevious(flatList[i - 1]);
+                if (i != flatList.length - 1) flatList[i].setNext(flatList[i + 1]);
+            }
+            
+            /* Set focus on an element based on the previous element tree. */
             if (newFocus) {
-                for (element of this._elements) {
+                for (let element of this._elements) {
                     let found = element.findChild(newFocus.getID());
                     if (found) {
                         found.makeFocused();
@@ -259,7 +271,10 @@ if (window.parent == window.top) {
             this._focusedElement = element;
             const node = this._focusedElement.getNode();
             node.classList.add("res-selected");
-            node.scrollIntoViewIfNeeded(false);
+            /* Ensures the important parts of the element (content and tagline) are visible.
+             * Neither of these reliably scrolls the whole element into view on its own. */
+            node.querySelector(".entry").scrollIntoViewIfNeeded(false);
+            node.querySelector(".tagline").scrollIntoViewIfNeeded(false);
         }
         
         /* Handle key events globally. */
