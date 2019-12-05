@@ -1,6 +1,8 @@
 
 # Vim Keys for Reddit
 
+<img src="https://l.tague.me/vim-keys-for-reddit/vkfr-logo.png" align="left" width="150"/>
+
 This is a minimal Safari clone of the [Reddit Enhancement Suite](https://redditenhancementsuite.com).
 Unfortunately, the Reddit Enhancement Suite doesn't support Safari - so this project introduces support.
 
