@@ -66,6 +66,9 @@
 		135CF64D239826D70052E38B /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		1398B0C823995E3300E5F000 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1398B0CA2399988000E5F000 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1398B0CB23999D6700E5F000 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = "<group>"; };
+		1398B0CC23999E9200E5F000 /* travis-build-app.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "travis-build-app.sh"; sourceTree = "<group>"; };
+		1398B0CD2399A1E000E5F000 /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,9 @@
 		135CF61123981FBD0052E38B = {
 			isa = PBXGroup;
 			children = (
+				1398B0CD2399A1E000E5F000 /* ExportOptions.plist */,
+				1398B0CC23999E9200E5F000 /* travis-build-app.sh */,
+				1398B0CB23999D6700E5F000 /* .travis.yml */,
 				1398B0CA2399988000E5F000 /* LICENSE */,
 				1398B0C823995E3300E5F000 /* README.md */,
 				135CF61C23981FBD0052E38B /* Vim Keys for Reddit */,
