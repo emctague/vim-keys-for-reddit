@@ -199,6 +199,13 @@ if (window.parent == window.top) {
         getCommentURL() {
             return this.getNode().querySelector("a.bylink").href;
         }
+        
+        /* Obtain the link URL of this element unless it's the same as the comment URL */
+        getLinkURL() {
+            const link = this.getNode().querySelector("a.title").href;
+            const comment = this.getCommentURL();
+            if (link !== comment) return link;
+        }
     }
 
     
@@ -271,10 +278,19 @@ if (window.parent == window.top) {
                 "z": f => f.downvote(),
                 "x": f => f.toggleExpand(),
                 "c": f => window.location.href = f.getCommentURL(),
-                "C": f => safari.extension.dispatchMessage("openNewTab", {"url": f.getCommentURL()})
+                "C": f => this.openNewTab(f.getCommentURL()),
+                "l": f => {
+                    this.openNewTab(f.getCommentURL());
+                    this.openNewTab(f.getLinkURL());
+                }
             };
             
             if (handlers[e.key]) handlers[e.key](this._focusedElement);
+        }
+        
+        /* Open a link in a new tab, if the provided URL is not null. */
+        openNewTab(url) {
+            if (url) safari.extension.dispatchMessage("openNewTab", {url});
         }
     }
 
