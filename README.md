@@ -6,7 +6,7 @@ Unfortunately, the Reddit Enhancement Suite doesn't support Safari - so this pro
 
 ##  [Install Latest Version](https://github.com/emctague/vim-keys-for-reddit/releases/latest/download/Vim.Keys.for.Reddit.zip)
 
-You can download the latest version [here](https://github.com/emctague/vim-keys-for-reddit/releases-latest). Install it by downloading, unzipping, and then dragging it to your Applications folder. Make sure it's enabled in your Safari extension settings, too!
+You can download the latest version [here](https://github.com/emctague/vim-keys-for-reddit/releases/latest). Install it by downloading, unzipping, and then dragging it to your Applications folder. Make sure it's enabled in your Safari extension settings, too!
 
 ## Licensing
 
