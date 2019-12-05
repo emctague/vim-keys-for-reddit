@@ -65,6 +65,7 @@
 		135CF64123981FBE0052E38B /* Vim_Keys_for_Reddit_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vim_Keys_for_Reddit_Extension.entitlements; sourceTree = "<group>"; };
 		135CF64D239826D70052E38B /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		1398B0C823995E3300E5F000 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1398B0CA2399988000E5F000 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		135CF61123981FBD0052E38B = {
 			isa = PBXGroup;
 			children = (
+				1398B0CA2399988000E5F000 /* LICENSE */,
 				1398B0C823995E3300E5F000 /* README.md */,
 				135CF61C23981FBD0052E38B /* Vim Keys for Reddit */,
 				135CF63423981FBE0052E38B /* Vim Keys for Reddit Extension */,

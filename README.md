@@ -11,7 +11,7 @@ You can download the latest version [here](https://github.com/emctague/vim-keys-
 
 ## Licensing
 
-Licensing is To Be Determined.
+Vim Keys for Reddit is licensed under the MIT license. See [LICENSE](LICENSE) for details.
 
 ## Contributors
 
