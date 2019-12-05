@@ -1,5 +1,6 @@
 language: swift
 xcode_project: Vim Keys for Reddit.xcodeproj
+osx_image: xcode11.2
 deploy:
   provider: releases
   draft: true
