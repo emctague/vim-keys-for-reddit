@@ -12,7 +12,7 @@
 */
 
 /* Set a highlight on the currently selected entry (post or comment). */
-.res-selected, .res-selected>.entry {
+.res-selected>.entry {
     background-color: #F0F3FC;
 }
 

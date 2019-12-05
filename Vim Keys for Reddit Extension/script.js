@@ -21,23 +21,17 @@ if (window.parent == window.top) {
          * the chain of next/previous elements.
          */
         static locateElements(parent, controller) {
-            let nodes = null;
-            let output = [];
+            const selObj = parent ? parent.getNode() : document;
             
-            if (parent == null) {
-                nodes = document.querySelectorAll(".sitetable.linklisting>.thing:not(.promotedlink), .sitetable.nestedlisting>.thing:not(.promotedlink)");
-            } else {
-                nodes = parent.getNode().querySelectorAll(":scope>.child>.sitetable>.thing:not(.promotedlink)");
-            }
+            const selPart = ".sitetable>.thing:not(.promotedlink)";
             
-            const allElements = Array.from(nodes);
+            const fullSel = parent ? `:scope>.child>${selPart}`
+                                 : `.linklisting${selPart}, .nestedlisting${selPart}`;
             
-            for (const i in allElements) {
-                output.push(new VimKeysElement(allElements[i].id,
-                                               i == 0 ? parent : output[i - 1],
-                                               controller));
-            }
-            
+            let prev = parent;
+            const output = Array.from(selObj.querySelectorAll(fullSel))
+                                .map(item =>
+                                     prev = new VimKeysElement(item.id, prev, controller));
             
             output.computeNexts = function() {
                 for (const i in output) {
@@ -51,43 +45,59 @@ if (window.parent == window.top) {
             return output;
         }
         
+        /*
+         Members:
+         
+        _id                 DOM ID of this element
+        _controller         Instance of VimKeys class that controls this element
+        _next               Next element, including at lower levels
+        _previous           Previous element, including at lower levels
+        _immediateNext      Next element on same or parent level
+        _immediatePrevious  Previous element on same or parent level
+        _validWhen          Controller ActiveState for which this element is valid
+        _type               "Post", "Comment", "More"
+        _children           Child elements, if applicable
+        */
+        
         /* Construct an element, which may have child elements.
          * `id` is the DOM element ID for this thing
          * `previous` is the previous Element instance, if applicable.
          * `controller` is the VimKeys instance.
          */
         constructor(id, previous, controller) {
-            this._controller = controller;
             this._id = id;
+            this._controller = controller;
             this._validWhen = this._controller.getActiveState();
+            this._previous = previous;
+            this._immediatePrevious = previous;
+            this._next = null;
+            this._immediateNext = null;
             
             const node = this.getNode();
             
-            this._previous = previous;
-            this._next = null;
-            this._immediateNext = null;
-            this._immediatePrevious = previous;
-            this._isComment = node.classList.contains("comment");
-            this._isMoreChildren = node.classList.contains("morechildren");
+            this._type = node.classList.contains("comment") ? "Comment" :
+                         node.classList.contains("morechildren") ? "More" :
+                         "Post";
+            
+            
             this._children = VimKeysElement.locateElements(this, this._controller);
+            if (this._children.length) this._next = this._children[0];
             
-            if (this._children.length > 0) {
-                this._next = this._children[0];
-            }
-            
-            const topMatter = node.querySelector(".top-matter");
-            const entry = node.querySelector(".entry");
-            if (topMatter) topMatter.addEventListener("click", _ => this.makeFocused());
-            if (entry) entry.addEventListener("click", _ => this.makeFocused());
+            node.querySelector(".top-matter, .entry").addEventListener("click", _ => this.makeFocused());
             
             this._children.computeNexts();
             
-            if (this._isMoreChildren) {
+            if (this._type === "More") {
                 /* Rebuild node tree when necessary. */
                 node.addEventListener('DOMNodeRemoved', () => {
-                      if (this._validWhen === this._controller.getActiveState()) this._controller.updateTree(this.getPrevious());
+                      if (this.isValid()) this._controller.updateTree(this.getPrevious());
                 });
             }
+        }
+        
+        /* Check if this element is still valid. */
+        isValid() {
+            return this._validWhen === this._controller.getActiveState();
         }
         
         /* Make this element the actively focused element. */
@@ -100,7 +110,8 @@ if (window.parent == window.top) {
         /* Set up the 'next' element for this element. */
         setNext(next) {
             this._immediateNext = next;
-            if (this._children.length > 0) {
+            
+            if (this._children.length) {
                 this._children[this._children.length - 1].setNext(next);
                 next.setPrevious(this._children[this._children.length - 1]);
             } else {
@@ -121,38 +132,30 @@ if (window.parent == window.top) {
         
         /* Obtain the previous valid (non-hidden) element. */
         getPrevious() {
-            if (this._immediatePrevious && this._immediatePrevious.isCollapsed()) {
+            if (this._immediatePrevious && this._immediatePrevious.isCollapsed())
                 return this._immediatePrevious;
-            } else return this._previous;
+            else
+                return this._previous;
         }
         
         /* Obtain the next valid (non-hidden) element. */
         getNext() {
-            if (this.isCollapsed()) {
-                return this._immediateNext;
-            } else return this._next;
+            return this.isCollapsed() ? this._immediateNext : this._next;
         }
         
         /* Obtain the next element at the same level or parent level. */
         getImmediateNext() {
-            if (this._immediateNext) return this._immediateNext;
-            else return this._next;
+            return this._immediateNext || this._next;
         }
         
         /* Obtain the previous element at the same level of parent level. */
         getImmediatePrevious() {
-            if (this._immediatePrevious) return this._immediatePrevious;
-            else return this._previous;
-        }
-        
-        /* Check if this element is a comment. */
-        isComment() {
-            return this._isComment;
+            return this._immediatePrevious || this._previous;
         }
         
         /* Check if this element is currently hidden. */
         isCollapsed() {
-            return this._isComment && this.getNode().matches(".collapsed, .collapsed *");
+            return this.getNode().matches(".collapsed, .collapsed *");
         }
         
         /* Get the DOM ID of this element. */
@@ -187,15 +190,9 @@ if (window.parent == window.top) {
          * If this element is a "load more comments" link, it will trigger
          * a total re-build of Vim Keys for Reddit's element tree. */
         toggleExpand() {
-            if (this._isMoreChildren) {
-                this.getNode().querySelector("a").click();
-            } else {
-                const node = this.getNode();
-                const expando = node.querySelector(".expando-button");
-                const expandBtn = node.querySelector(".expand");
-                if (expando) expando.click();
-                if (expandBtn) expandBtn.click();
-            }
+            this.getNode()
+                .querySelector(this._type === "More" ? "a" : ".expando-button, .expand")
+                .click();
         }
         
         /* Obtain the comment URL of this element if applicable. */
@@ -234,13 +231,13 @@ if (window.parent == window.top) {
                     let found = element.findChild(newFocus.getID());
                     if (found) {
                         found.makeFocused();
-                        break;
+                        return;
                     }
                 }
-            } else {
-                if (this._elements.length > 0)
-                    this._elements[0].makeFocused();
             }
+            
+            if (this._elements.length > 0)
+                this._elements[0].makeFocused();
         }
        
         /* Updates the internal focused element variable and styling on the focused
@@ -248,7 +245,7 @@ if (window.parent == window.top) {
          * DO NOT CALL DIRECTLY.
          */
         setFocusedElement(element) {
-            if (this._focusedElement != null) {
+            if (this._focusedElement) {
                 this._focusedElement.getNode().classList.remove("res-selected");
             }
             
@@ -260,9 +257,8 @@ if (window.parent == window.top) {
         
         /* Handle key events globally. */
         handleKeyPress(e) {
-            if (this._focusedElement == null
-                || e.target.nodeName.toLowerCase() === 'input'
-                || e.target.nodeName.toLowerCase() === 'textarea') return;
+            if (['input, textarea'].includes(e.target.nodeName.toLowerCase()))
+                return;
             
             /* Maps keys to functions that handle their presses.
              * Argument passed is the actively focused element. */
@@ -282,6 +278,5 @@ if (window.parent == window.top) {
         }
     }
 
-    window.vimKeys = new VimKeys();
-    document.addEventListener("DOMContentLoaded", () => window.vimKeys.setup());
+    document.addEventListener("DOMContentLoaded", () => new VimKeys().setup());
 }
