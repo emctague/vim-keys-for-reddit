@@ -4,9 +4,9 @@
 This is a minimal Safari clone of the [Reddit Enhancement Suite](https://redditenhancementsuite.com).
 Unfortunately, the Reddit Enhancement Suite doesn't support Safari - so this project introduces support.
 
-##  [Install](https://l.tague.me/vim-keys-for-reddit)
+##  [Install Latest Version](https://github.com/emctague/vim-keys-for-reddit/releases/latest/download/Vim.Keys.for.Reddit.zip)
 
-You can download the latest version from https://l.tague.me/vim-keys-for-reddit. Install it by downloading, unzipping, and then dragging it to your Applications folder. Make sure it's enabled in your Safari extension settings, too!
+You can download the latest version [here](https://github.com/emctague/vim-keys-for-reddit/releases-latest). Install it by downloading, unzipping, and then dragging it to your Applications folder. Make sure it's enabled in your Safari extension settings, too!
 
 ## Licensing
 
