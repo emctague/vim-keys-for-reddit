@@ -11,8 +11,23 @@
 		</dict>
 		<key>Vim Keys for Reddit.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>135CF61923981FBD0052E38B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>135CF62C23981FBE0052E38B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
