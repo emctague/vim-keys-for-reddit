@@ -1,4 +1,4 @@
-<img src="https://l.tague.me/vim-keys-for-reddit/vkfr-logo.png" align="right" width="150"/>
+<img src="http://cdn.jsdelivr.net/gh/emctague/vim-keys-for-reddit/Vim%20Keys%20for%20Reddit/Assets.xcassets/AppIcon.appiconset/Artboard%201%40256.png" align="right" width="150"/>
 
 # Vim Keys for Reddit
 
